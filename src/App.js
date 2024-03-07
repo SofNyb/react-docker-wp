@@ -1,15 +1,23 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-function App() {
+const App = () => {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8888/wordpress/wp-json/wp/v2/posts?_embed")
+      .then((res) => setPosts(res.data));
+  }, []);
+  const postsJsx = posts.map((post) => (
+    <li
+      key={post.id}
+      dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+    ></li>
+  ));
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello, World!</p>
-      </header>
+      <ul>{postsJsx}</ul>
     </div>
   );
-}
+};
 export default App;
