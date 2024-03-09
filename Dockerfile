@@ -10,3 +10,4 @@ RUN npm install
 COPY . .
 # Start the app
 CMD ["npm", "start"]
+# for at starte projektet, brug kommandoen "docker run -p 3000:3000 react-docker-wp"

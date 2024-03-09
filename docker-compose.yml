@@ -21,9 +21,9 @@ services: # Defines the services your application consists of
     ports:
       - "8000:80"
     environment:
-      WORDPRESS_DB_HOST: db:3308
-      WORDPRESS_DB_USER: MyWordPressUser
-      WORDPRESS_DB_PASSWORD: Pa$$5w0rD
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: SofieW
+      WORDPRESS_DB_PASSWORD: Lauritz040208!!!
       WORDPRESS_DB_NAME: MyWordPressDatabaseName
     volumes:
       - wordpress_data:/var/www/html
